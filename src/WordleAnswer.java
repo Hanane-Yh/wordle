@@ -47,7 +47,7 @@ class WordleAnswer {
         int counter = 0;
         boolean canBe = true;
 
-        for (int num : characters) {    //checks if all the yellow & green letters exist in word
+        for (int num : characters) {    // checks if all the yellow & green letters exist in word
             if (num == isThere && !exist(word.toCharArray(), (char) ('a' + counter))) {
                 canBe = false;
                 break;
@@ -124,12 +124,12 @@ class WordleAnswer {
             exist = false;          // black letter
         }
         else if ((characters[(letter - 'a')] > unknown && characters[(letter - 'a')] < isThere) && answerCharacters[index] != letter ) {
-            exist = false;          // green letter, vali index vorudi motefavet bashe
+            exist = false;          // green letter, different index
         }
         else if (characters[(letter - 'a')] == unknown && (answerCharacters[index] != '\0' || full(answerCharacters))) {
-            exist = false;          // unknown vali at given index ye char green dige bashe or answerCharacters already full bashe (answer found)
+            exist = false;          // unknown or answerCharacters already full (answer found)
         }
-        if (getKnownLettersCount() == 5 && characters[(letter - 'a')] == unknown) {      //unknown vali yellow + green = 5
+        if (getKnownLettersCount() == 5 && characters[(letter - 'a')] == unknown) {      // unknown input but known yellow and green letters = 5
             exist = false;
         }
         for (int i = 0; i < 4; i++) {
